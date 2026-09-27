@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Baby Lina 🥹</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+      overflow: hidden;
+    }
+    .card {
+      width: 90%;
+      max-width: 400px;
+      padding: 35px 25px;
+      text-align: center;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .heart {
+      font-size: 55px;
+      animation: heartbeat 1.2s infinite;
+    }
+    h1 {
+      font-size: 25px;
+      color: #ff4f87;
+      margin: 15px 0;
+    }
+    p { color: #777; font-size: 16px; }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      height: 55px;
+    }
+    button {
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #yes { background: #ff4f87; color: white; }
+    #no {
+      background: #ddd;
+      color: #555;
+      position: absolute;
+      transition: all 0.2s ease;
+    }
+    .message {
+      display: none;
+      margin-top: 20px;
+      color: #ff4f87;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="heart">🥹❤️</div>
+    <h1>Hi Baby Lina, bati na tayo? 🥹</h1>
+    <p>Choose one... pero alam ko na ang pipiliin mo 😭❤️</p>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">YES ❤️</button>
+      <button id="no">NO 😭</button>
+    </div>
+
+    <div class="message" id="message">
+      YEYYYY! Bati na tayo 🥹❤️<br>
+      Love you, Baby Lina! 😭💕
+    </div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+
+    function moveNoButton() {
+      const maxX = window.innerWidth - noButton.offsetWidth - 20;
+      const maxY = window.innerHeight - noButton.offsetHeight - 20;
+      const x = Math.random() * Math.max(20, maxX);
+      const y = Math.random() * Math.max(20, maxY);
+
+      noButton.style.position = "fixed";
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    }
+
+    noButton.addEventListener("mouseover", moveNoButton);
+
+    noButton.addEventListener("touchstart", function(e) {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    noButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    function yesClicked() {
+      document.getElementById("message").style.display = "block";
+      document.querySelector(".buttons").style.display = "none";
+    }
+  </script>
+</body>
+</html>
